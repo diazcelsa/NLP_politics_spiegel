@@ -24,3 +24,4 @@ In the current repository you will find:
 ![q11](img/q11.png?raw=true "Title")
 
 
+* Sentiment analysis of migration selected articles per quarter
