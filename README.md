@@ -10,6 +10,7 @@ In the current repository you will find:
 * Topic related articles extraction
 * TF-IDF grid search for parameter optimization with customize metrics for the optimization
 * Visualization of most common normalized words over time in the topic
+* Sentiment analysis of migration selected articles per quarter
 
 ![q1](img/q1.png?raw=true "Title")
 ![q2](img/q2.png?raw=true "Title")
@@ -22,6 +23,3 @@ In the current repository you will find:
 ![q9](img/q9.png?raw=true "Title")
 ![q10](img/q10.png?raw=true "Title")
 ![q11](img/q11.png?raw=true "Title")
-
-
-* Sentiment analysis of migration selected articles per quarter
