@@ -1,0 +1,11 @@
+requests==2.9.1
+pandas>=0.18.1
+scikit-learn==0.18.1
+scipy>=0.17.0
+numpy>=1.10.1
+seaborn
+jupyter
+gensim
+newspaper3k
+nltk
+bs4
