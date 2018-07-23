@@ -2,7 +2,7 @@ import datetime
 import os
 import re
 
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import nltk
 import pandas as pd
 import requests
@@ -100,7 +100,7 @@ def assign_quarter_labels(data, quarter_bound_list, quarter_label_list):
     data['quarter'] = quarter_label_list[-1]
 
     for i, quarter in enumerate(quarter_bound_list):
-        condition = (data["date"] >= quarter[0]) & (data["date"] < quarter[1])
+        condition = (data["date"] >= quarter[0]) & (data["date"] <= quarter[1])
         data.loc[data[condition].index, "quarter"] = quarter_label_list[i]
 
     return data
@@ -366,11 +366,11 @@ def get_most_freq_words_quarter(data_freqs, n_top, stemming_mapper):
 
 
 def visualize_wordcloud(dict_freqs, quarter, title, relative_scaling=0.5, max_words=100, background_color='black'):
-    plt.figure(figsize=(10, 10))
+    #plt.figure(figsize=(10, 10))
     wordcloud = WordCloud(width=900, height=500, max_words=max_words, relative_scaling=relative_scaling,
                           normalize_plurals=False, background_color=background_color).generate_from_frequencies(
         dict_freqs[quarter])
-    plt.title(f"Wordcloud for quarter {title}")
-    plt.imshow(wordcloud, interpolation='bilinear')
-    plt.axis("off")
-    plt.show()
+    #plt.title(f"Wordcloud for quarter {title}")
+    #plt.imshow(wordcloud, interpolation='bilinear')
+    #plt.axis("off")
+    #plt.show()
