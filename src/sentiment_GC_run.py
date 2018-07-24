@@ -17,7 +17,7 @@ def main(args):
     model = Model(root_path=args.path)
 
     results = []
-    for i, text in articles["text"].iteritems():
+    for i, text in articles["text_en"].iteritems():
         print("start transforming text")
         # Run LSTM model to predict final hidden units' values
         text_features = model.transform(text)
