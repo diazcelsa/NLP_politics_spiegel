@@ -1,14 +1,10 @@
 import datetime
-import os
 import re
 
-import matplotlib.pyplot as plt
 import nltk
 import pandas as pd
-import requests
 from scipy import sparse as sp_sparse
 from sklearn.feature_extraction.text import TfidfVectorizer
-from wordcloud import WordCloud
 
 
 def text_clean_summary(text, characters):
@@ -65,24 +61,6 @@ def tfidf_features(X, min_df, max_df, n_gram_min, n_gram_max):
     X_freq = sp_sparse.vstack([sp_sparse.csr_matrix(tfidf_vectorizer.fit_transform(X))])
 
     return X_freq, tfidf_vectorizer.vocabulary_
-
-
-def google_translator(query, language):
-    url = "https://translation.googleapis.com/language/translate/v2"
-    google_key = os.environ['GOOGLE_TRANSLATE_KEY']
-
-    params = {
-        'key': google_key,
-        'q': query,
-        'target': language
-    }
-    header = {'Content-Type': "application/json; charset=utf-8"}
-    resp = requests.post(url=url, params=params, headers=header)
-    resp = resp.json()
-    try:
-        return resp['data']['translations'][0]['translatedText']
-    except:
-        return ''
 
 
 def get_quarter_boundaries(year):
@@ -363,14 +341,3 @@ def get_most_freq_words_quarter(data_freqs, n_top, stemming_mapper):
         d = dict(zip(df["word"].tolist(), df["freq"].tolist()))
         ds[quarter] = d
     return ds
-
-
-def visualize_wordcloud(dict_freqs, quarter, title, relative_scaling=0.5, max_words=100, background_color='black'):
-    plt.figure(figsize=(10, 10))
-    wordcloud = WordCloud(width=900, height=500, max_words=max_words, relative_scaling=relative_scaling,
-                          normalize_plurals=False, background_color=background_color).generate_from_frequencies(
-        dict_freqs[quarter])
-    plt.title(f"Wordcloud for quarter {title}")
-    plt.imshow(wordcloud, interpolation='bilinear')
-    plt.axis("off")
-    plt.show()
