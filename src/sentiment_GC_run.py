@@ -13,21 +13,31 @@ def main(args):
     if args.n == 'test':
         articles = articles.loc[:3]
 
-    # Initialize an instance of the model
-    model = Model(root_path=args.path)
+    elif args.n == 'all':
+        # Initialize an instance of the model
+        model = Model(root_path=args.path)
 
-    results = []
-    for i, text in articles["text_en"].iteritems():
-        print("start transforming text")
-        # Run LSTM model to predict final hidden units' values
+        results = []
+        for i, text in articles["text_en"].iteritems():
+            print("start transforming text")
+            # Run LSTM model to predict final hidden units' values
+            text_features = model.transform(text)
+            print("text transformed")
+            # Extract content from sentiment hidden unit 2388
+            results.append(text_features[:, 2388])
+            print(f"text {i} analyzed")
+            pickle.dump(results, open("../data/sentiment_analysis_scores_test.pkl", "wb"))
+
+        pickle.dump(results, open("../data/sentiment_analysis_scores.pkl", "wb"))
+
+    elif args.n == 'text':
+        # Initialize an instance of the model
+        model = Model(root_path=args.path)
+        with open(args.input, "r") as myfile:
+            text = myfile.readlines()
         text_features = model.transform(text)
-        print("text transformed")
-        # Extract content from sentiment hidden unit 2388
-        results.append(text_features[:, 2388])
-        print(f"text {i} analyzed")
-        pickle.dump(results, open("../data/sentiment_analysis_scores_test.pkl", "wb"))
+        pickle.dump(text_features[:, 2388], open("../data/sentiment_analysis_scores_text.pkl", "wb"))
 
-    pickle.dump(results, open("../data/sentiment_analysis_scores.pkl", "wb"))
 
 if __name__ == "__main__":
 
