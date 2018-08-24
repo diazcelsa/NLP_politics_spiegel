@@ -24,4 +24,3 @@ In the current repository you will find:
 ![topic 4](img/t4.png?raw=true "Title")
 ![topic 5](img/t5.png?raw=true "Title")
 ![topic 6](img/t6.png?raw=true "Title")
-![topic 7](img/t7.png?raw=true "Title")

@@ -4,7 +4,6 @@ numpy==1.15.0
 jupyter
 gensim==3.1.0
 newspaper3k
-nltk
 bs4==0.0.1
 Jinja2==2.10
 nltk==3.2.5
@@ -14,3 +13,8 @@ seaborn==0.8.1
 tensorflow==1.4.0
 wordcloud==1.4.1
 torch==0.4.1
+plotly
+dash==0.21.1
+dash-core-components==0.13.0rc4
+dash-html-components==0.10.1
+dash-renderer==0.12.1
