@@ -15,8 +15,8 @@ The goal is to extract publications related to Migration between these years and
 In the current repository you will find:
 * Topic related articles extraction
 * TF-IDF grid search for parameter optimization with customize metrics for the optimization
-* Topic modeling (7 subtopics extracted) and its density over the last years
-* Sentiment analysis of migration related articles over the last years
+* Topic modeling (7 subtopics extracted) and its density over the last years ![blog post](http://www.ourdataourinsights.com/topic_modeling_migration.html)
+* Sentiment analysis of migration related articles over the last years ![blog post](http://www.ourdataourinsights.com/sentiment_analysis_migration.html)
 
 ![topic 1](img/t1.png?raw=true "Title")
 ![topic 2](img/t2.png?raw=true "Title")
